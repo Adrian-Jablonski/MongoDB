@@ -20,3 +20,10 @@ use mongoBasics     // Switches to a database called mongoBasics (creates the da
  db.post.insert({title: "Hello"})   // inserts data into database
 
  db.post.find()     // lists all documents created in a collection
+
+ load('D:/Computer Programming Education/MongoDB/seed.js')  // used to load the seed.js DB script
+
+ db.posts.find().limit(2)   // returns the first 2 users
+
+ var post = db.posts.find()[1];
+ post.title     // returns "I love the holidays"
