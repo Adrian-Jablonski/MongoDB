@@ -32,4 +32,14 @@ use mongoBasics     // Switches to a database called mongoBasics (creates the da
 
 db.posts.createIndex({title: 1}, {})    // use 1 for ascending order or -1 for descending order
 
+
  db.posts.dropIndex('title_1')      // Deletes an index
+
+### Querying collections
+ db.posts.find({}, {body: false, description: false})    // returns documents without body and description field
+
+ db.posts.find({}, {title: true})   // returns documents with title field and ID field only
+
+ db.posts.find({title: "Parenting 101"})    // queries for post with a title of "Parenting 101"
+
+ db.posts.find({$or: [{title: "Parenting 101"}, {title: "My Awesome Recipe!"}]})    // returns a post with a title of "Parenting 101" or "My Awesome Recipe!"
