@@ -27,3 +27,9 @@ use mongoBasics     // Switches to a database called mongoBasics (creates the da
 
  var post = db.posts.find()[1];
  post.title     // returns "I love the holidays"
+
+ db.posts.getIndexes()      // returns index
+
+db.posts.createIndex({title: 1}, {})    // use 1 for ascending order or -1 for descending order
+
+ db.posts.dropIndex('title_1')      // Deletes an index
