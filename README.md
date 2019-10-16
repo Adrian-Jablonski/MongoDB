@@ -12,6 +12,11 @@ Start the mongodb daemon by running C:\mongodb\bin\mongod.exe in the Command Pro
 
 Connect to MongoDB using the Mongo shell While the MongoDB daemon is running, from a different Command prompt window run C:\mongodb\bin\mongo.exe. On my PC (C:\Program Files\MongoDB\Server\4.2\bin\mongo.exe)
 
+## Mongo hacker
+Used to highlight mongo syntax in the terminal
+
+npm install -g mongo-hacker 
+
 ## Using Mongo Shell
 show dbs    // lists databases
 
@@ -43,3 +48,12 @@ db.posts.createIndex({title: 1}, {})    // use 1 for ascending order or -1 for d
  db.posts.find({title: "Parenting 101"})    // queries for post with a title of "Parenting 101"
 
  db.posts.find({$or: [{title: "Parenting 101"}, {title: "My Awesome Recipe!"}]})    // returns a post with a title of "Parenting 101" or "My Awesome Recipe!"
+
+ ### Updating Data
+ db.posts.update({author: ObjectId("5da64dde9294e2ca5574b317")}, {$set: {tags: ['foo', 'bar'], title: "I'm an Updated Title!"}})    // adds a new tag field and updates the title field
+
+ ### Sorting data
+ db.posts.find({}, {title:true}).sort({title: 1})   // sorts by title in ascending order 
+
+ ### Pagination using sort and skip
+ db.posts.find({}, {title:true}).sort({title: 1}).limit(2).skip(2)   // returns second page of results (results 3 - 4)
