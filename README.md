@@ -57,3 +57,9 @@ db.posts.createIndex({title: 1}, {})    // use 1 for ascending order or -1 for d
 
  ### Pagination using sort and skip
  db.posts.find({}, {title:true}).sort({title: 1}).limit(2).skip(2)   // returns second page of results (results 3 - 4)
+
+ ## MongoDB Drivers: 
+ https://docs.mongodb.org/ecosystem/drivers/
+
+ ## Sharding in Mongo: 
+ https://docs.mongodb.org/manual/sharding/
